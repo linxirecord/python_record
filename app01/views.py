@@ -72,3 +72,4 @@ class InfoViewSet(APIView):
         except Exception as e:
             pass
         return JsonResponse (ret)
+    
