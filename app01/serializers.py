@@ -2,7 +2,7 @@ from rest_framework import serializers
 from .models import UserInfo
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
-    #user_type=serializers.CharField(source="get_user_type_display")
+    user_type=serializers.CharField(source="get_user_type_display")
     class Meta:
         model = UserInfo
         fields = ('id','user_type','username','password')
