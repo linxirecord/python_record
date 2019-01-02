@@ -27,5 +27,4 @@ router.register(r'login', views.UserViewSet)
 urlpatterns = [
     path(r'', include(router.urls)),
     path(r'info/', views.InfoViewSet.as_view()),
-
 ]
