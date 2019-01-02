@@ -1,6 +1,5 @@
 from django.db import models
 
-
 user_type_choice=(
     (1,"ordinaryuser"),
     (2,"adminuser"),
