@@ -17,3 +17,4 @@ class UserToken(models.Model):
     '''definite table'''
     user=models.OneToOneField(UserInfo,on_delete=models.CASCADE)
     token=models.CharField(max_length=64)
+    token_created=models.DateTimeField(max_length=64)
