@@ -7,7 +7,13 @@ from rest_framework.views import APIView
 from django.http import JsonResponse
 from app01.utils.permission import  Ordinarypermission
 from app01.utils.authenticate import Authtication
+import datetime
 
+
+def token_create_time():
+    '''created token time'''
+    created_time=datetime.datetime.now()
+    return created_time
 
 def md5(user):
     '''create token'''
@@ -28,7 +34,9 @@ def check_user(self,request,user,pwd):
             ret['msg']='Username or password is error'
         else:
             token=md5(user)
+            token_created=token_create_time()
             models.UserToken.objects.update_or_create(user=userset,defaults={"token":token})
+            models.UserToken.objects.update_or_create(user=userset, defaults={"token_created": token_created})
             ret['token']=token
     except Exception as e:
         ret['code']=1002
